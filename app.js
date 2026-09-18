@@ -1,5 +1,3 @@
-const { createClient } = window.supabase;
-const supabase = createClient(window.SUPABASE_URL, window.SUPABASE_ANON_KEY);
 const DISCOUNT = 5;
 
 const $ = id => document.getElementById(id);
