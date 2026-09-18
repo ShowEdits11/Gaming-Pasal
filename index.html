@@ -8,8 +8,9 @@
 </head>
 <body>
 <header class="nav">
-  <div class="brand">Gaming Pasal</div>
+  <div class="brand">🎮 Gaming Pasal</div>
   <div class="nav-right">
+    <a href="#how" id="navHow">How it works</a>
     <div class="nav-user hidden" id="navUser">
       <span class="nav-welcome">Welcome, <strong id="navUserName">Customer</strong></span>
       <button id="navLogout" class="outline small-outline">Logout</button>
@@ -46,6 +47,15 @@
     <p id="authMessage" class="message"></p>
   </section>
 
+  <section class="dashboard hidden" id="dashboard">
+    <div class="dash-head">
+      <div>
+        <span class="muted">Welcome</span>
+        <h2 id="userName">Customer</h2>
+      </div>
+      <button id="logout" class="outline">Logout</button>
+    </div>
+
     <div class="grid">
       <div class="card stat"><span>Your referral code</span><strong id="refCode">—</strong><button class="small" id="copyCode">Copy</button></div>
       <div class="card stat"><span>Your referral link</span><strong id="refLink">—</strong><button class="small" id="copyLink">Copy link</button></div>
@@ -77,7 +87,7 @@
       <li>Your friend receives a 5% OFF first-order reward.</li>
       <li>After the friend's eligible purchase is marked completed, you receive a 5% OFF reward for your next eligible order.</li>
     </ol>
-    <p class="note">Discounts are one-time referral rewards. No cash balance or withdrawal system is used.</p>
+    <p class="note">Discounts are one-time referral rewards.</p>
   </section>
 </main>
 
@@ -86,7 +96,7 @@
 <!-- ===== Chat widgets: WhatsApp + Facebook Messenger ===== -->
 <div class="chat-fab-group">
   <a class="chat-fab whatsapp"
-     href="https://wa.me/9779800000000?text=Hi%20Gaming%20Pasal%2C%20I%27d%20like%20to%20make%20a%20purchase"
+     href="https://wa.me/+9779807418704?text=Hi%20Gaming%20Pasal%2C%20I%27d%20like%20to%20make%20a%20purchase"
      target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor" aria-hidden="true">
       <path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.5.66 4.84 1.8 6.86L4 29l7.32-1.92a11.9 11.9 0 0 0 4.7.97h.01c6.62 0 12.02-5.4 12.02-12.03C28.04 8.4 22.64 3 16.02 3zm0 21.86h-.01a9.9 9.9 0 0 1-5.05-1.39l-.36-.21-4.34 1.14 1.16-4.23-.24-.44a9.85 9.85 0 0 1-1.5-5.21c0-5.46 4.44-9.9 9.91-9.9 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.98c0 5.47-4.44 9.9-9.9 9.9zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.97-.95 1.17-.35.22-.65.07a8.1 8.1 0 0 1-2.38-1.47 8.9 8.9 0 0 1-1.65-2.05c-.17-.3 0-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.35.19 1.86.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/>
