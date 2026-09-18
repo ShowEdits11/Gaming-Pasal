@@ -193,8 +193,10 @@ const { data, error } =
     await supabaseClient.auth.signUp({
         email: email,
         password: password,
+
         options: {
             emailRedirectTo: redirectUrl,
+
             data: {
                 name: name,
                 referral_code_input: referralCode
@@ -329,6 +331,10 @@ const { data, error } =
 
                     authCard.classList.remove("hidden");
 
+                    if ($("navUser")) {
+                        $("navUser").classList.add("hidden");
+                    }
+
                     msg.textContent = "";
 
                     toast("Logged out.");
@@ -344,6 +350,16 @@ const { data, error } =
 
             }
         );
+
+        // Header "Logout" button mirrors the dashboard one
+        if ($("navLogout")) {
+            $("navLogout").addEventListener(
+                "click",
+                function () {
+                    $("logout").click();
+                }
+            );
+        }
 
         // =====================================================
         // LOAD DASHBOARD
@@ -374,6 +390,10 @@ const { data, error } =
                     dashboard.classList.add("hidden");
 
                     authCard.classList.remove("hidden");
+
+                    if ($("navUser")) {
+                        $("navUser").classList.add("hidden");
+                    }
 
                     return;
                 }
@@ -418,6 +438,17 @@ const { data, error } =
                     profile.name ||
                     user.email ||
                     "Customer";
+
+                if ($("navUserName")) {
+                    $("navUserName").textContent =
+                        profile.name ||
+                        user.email ||
+                        "Customer";
+                }
+
+                if ($("navUser")) {
+                    $("navUser").classList.remove("hidden");
+                }
 
                 $("refCode").textContent =
                     profile.referral_code;
