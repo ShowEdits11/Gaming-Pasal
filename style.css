@@ -90,6 +90,35 @@ a:hover{ text-decoration: underline; }
 }
 .nav a:hover{ color: var(--text); text-decoration: none; }
 
+.nav-right{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-user{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 22px;
+  border-left: 1px solid var(--border-soft);
+}
+
+.nav-welcome{
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+
+.nav-welcome strong{
+  color: var(--text);
+  font-weight: 800;
+}
+
+.small-outline{
+  padding: 7px 14px;
+  font-size: 0.8rem;
+}
+
 /* ---------- Layout ---------- */
 .container{
   max-width: 980px;
@@ -419,6 +448,77 @@ button{
   font-size: 0.82rem;
 }
 
+/* ---------- Chat FABs (WhatsApp + Messenger) ---------- */
+.chat-fab-group{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 60;
+}
+
+.chat-fab{
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 24px -8px rgba(0,0,0,0.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chat-fab:hover{
+  transform: translateY(-3px) scale(1.04);
+  text-decoration: none;
+}
+
+.chat-fab:active{
+  transform: translateY(0) scale(0.98);
+}
+
+.chat-fab.whatsapp{
+  background: #25D366;
+  box-shadow: 0 10px 24px -8px rgba(37,211,102,0.55);
+}
+
+.chat-fab.messenger{
+  background: linear-gradient(135deg, #00B2FF, #006AFF);
+  box-shadow: 0 10px 24px -8px rgba(0,106,255,0.55);
+}
+
+.chat-fab.whatsapp::after,
+.chat-fab.messenger::after{
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  animation: fabPulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+
+.chat-fab.whatsapp::after{ background: rgba(37,211,102,0.55); }
+.chat-fab.messenger::after{ background: rgba(0,106,255,0.5); }
+
+.chat-fab{ position: relative; }
+
+@keyframes fabPulse{
+  0%{ transform: scale(1); opacity: 0.55; }
+  100%{ transform: scale(1.7); opacity: 0; }
+}
+
+@media (max-width: 560px){
+  .chat-fab-group{ right: 16px; bottom: 16px; gap: 12px; }
+  .chat-fab{ width: 50px; height: 50px; }
+  .chat-fab.whatsapp::after,
+  .chat-fab.messenger::after{ width: 50px; height: 50px; }
+}
 /* ---------- Toast ---------- */
 .toast{
   position: fixed;
@@ -446,7 +546,11 @@ button{
 
 /* ---------- Responsive ---------- */
 @media (max-width: 560px){
-  .nav{ padding: 14px 18px; }
+  .nav{ padding: 14px 18px; flex-wrap: wrap; gap: 10px; }
+  .nav-right{ gap: 14px; }
+  .nav-user{ padding-left: 14px; gap: 8px; }
+  .nav-welcome{ font-size: 0.8rem; }
+  #navHow{ display: none; }
   .container{ padding: 32px 16px 60px; }
   .card{ padding: 20px; border-radius: var(--radius-md); }
   .dash-head{ flex-direction: column; align-items: flex-start; gap: 12px; }
