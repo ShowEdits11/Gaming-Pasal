@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gaming Pasal — Refer & Earn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <div class="brand">🎮 Gaming Pasal</div>
+  <a href="#how">How it works</a>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="badge">REFER & EARN</span>
+    <h1>Give 5% OFF. Get 5% OFF.</h1>
+    <p>Invite a friend to Gaming Pasal. Your friend gets a first-order discount, and after their eligible purchase, you receive a discount for your next order.</p>
+  </section>
+
+  <section class="card auth" id="authCard">
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Login</button>
+      <button class="tab" data-tab="register">Register</button>
+    </div>
+
+    <form id="loginForm" class="form">
+      <input id="loginEmail" type="email" placeholder="Email address" required>
+      <input id="loginPassword" type="password" placeholder="Password" required>
+      <button class="primary" type="submit">Login</button>
+    </form>
+
+    <form id="registerForm" class="form hidden">
+      <input id="regName" type="text" placeholder="Your name" required>
+      <input id="regEmail" type="email" placeholder="Email address" required>
+      <input id="regPassword" type="password" placeholder="Password (min. 6 characters)" minlength="6" required>
+      <input id="regReferral" type="text" placeholder="Referral code (optional)">
+      <button class="primary" type="submit">Create account</button>
+    </form>
+    <p id="authMessage" class="message"></p>
+  </section>
+
+  <section class="dashboard hidden" id="dashboard">
+    <div class="dash-head">
+      <div>
+        <span class="muted">Welcome</span>
+        <h2 id="userName">Customer</h2>
+      </div>
+      <button id="logout" class="outline">Logout</button>
+    </div>
+
+    <div class="grid">
+      <div class="card stat"><span>Your referral code</span><strong id="refCode">—</strong><button class="small" id="copyCode">Copy</button></div>
+      <div class="card stat"><span>Your referral link</span><strong id="refLink">—</strong><button class="small" id="copyLink">Copy link</button></div>
+      <div class="card stat"><span>Friend's discount</span><strong>5% OFF</strong><small>First eligible order</small></div>
+      <div class="card stat"><span>Your reward</span><strong>5% OFF</strong><small>Next eligible order after referral purchase</small></div>
+    </div>
+
+    <div class="card share">
+      <h3>Share your referral link</h3>
+      <p>Send this link to a friend. They must register through it for the referral to be recorded.</p>
+      <div class="share-row">
+        <input id="shareInput" readonly>
+        <button class="primary" id="shareBtn">Share</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Referral history</h3>
+      <div id="history" class="history"><p class="muted">No referrals yet.</p></div>
+    </div>
+  </section>
+
+  <section id="how" class="card how">
+    <h2>How it works</h2>
+    <ol>
+      <li>Create your free account.</li>
+      <li>Copy your unique referral link.</li>
+      <li>Your friend registers using your link.</li>
+      <li>Your friend receives a 5% OFF first-order reward.</li>
+      <li>After the friend's eligible purchase is marked completed, you receive a 5% OFF reward for your next eligible order.</li>
+    </ol>
+    <p class="note">Discounts are one-time referral rewards. No cash balance or withdrawal system is used.</p>
+  </section>
+</main>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
