@@ -186,27 +186,21 @@ if (window.__GAMING_PASAL_REFERRAL_LOADED) {
 
                 try {
 
-                    const { data, error } =
-                        await supabaseClient.auth.signUp({
+const redirectUrl =
+    window.location.origin + window.location.pathname;
 
-                            email: email,
-
-                            password: password,
-
-                            options: {
-
-                                data: {
-
-                                    name: name,
-
-                                    referral_code_input:
-                                        referralCode
-
-                                }
-
-                            }
-
-                        });
+const { data, error } =
+    await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+            emailRedirectTo: redirectUrl,
+            data: {
+                name: name,
+                referral_code_input: referralCode
+            }
+        }
+    });
 
                     // Supabase error
                     if (error) {
